@@ -40,7 +40,7 @@ class BalloonDemo extends Demo
 			
 			p.moveTo new Vector (Random @width), (Random @height)
 
-			s = new Spring @mouse, p, (Random 30, 300), 1.0
+			s = new Spring @mouse, p, (Random 30, 3000), 1.0
 
 			@physics.particles.push p
 			@physics.springs.push s

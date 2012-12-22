@@ -46,7 +46,7 @@ BalloonDemo = (function(_super) {
       p.behaviours.push(new Wander(10));
       p.behaviours.push(attraction);
       p.moveTo(new Vector(Random(this.width), Random(this.height)));
-      s = new Spring(this.mouse, p, Random(30, 300), 1.0);
+      s = new Spring(this.mouse, p, Random(30, 3000), 1.0);
       this.physics.particles.push(p);
       _results.push(this.physics.springs.push(s));
     }

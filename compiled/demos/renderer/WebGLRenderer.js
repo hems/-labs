@@ -17,7 +17,7 @@ WebGLRenderer = (function(_super) {
 
   WebGLRenderer.SPRING_VS = '\nuniform vec2 viewport;\nattribute vec3 position;\n\nvoid main() {\n\n    // convert the rectangle from pixels to 0.0 to 1.0\n    vec2 zeroToOne = position.xy / viewport;\n    zeroToOne.y = 1.0 - zeroToOne.y;\n\n    // convert from 0->1 to 0->2\n    vec2 zeroToTwo = zeroToOne * 2.0;\n\n    // convert from 0->2 to -1->+1 (clipspace)\n    vec2 clipSpace = zeroToTwo - 1.0;\n\n    gl_Position = vec4(clipSpace, 0, 1);\n}';
 
-  WebGLRenderer.SPRING_FS = '\nvoid main() {\n    gl_FragColor = vec4(1.0, 1.0, 1.0, 0.1);\n}';
+  WebGLRenderer.SPRING_FS = '\n#ifdef GL_ES\nprecision highp float;\n#endif\n\nuniform float time;\nuniform vec2 resolution;\nuniform vec4 mouse;\nuniform sampler2D tex0;\nuniform sampler2D tex1;\n\nvoid main(void)\n{\n    vec2 p = -1.0 + 2.0 * gl_FragCoord.xy / resolution.xy;\n    vec2 m = -1.0 + 2.0 * mouse.xy / resolution.xy;\n\n    float a1 = atan(p.y-m.y,p.x-m.x);\n    float r1 = sqrt(dot(p-m,p-m));\n    float a2 = atan(p.y+m.y,p.x+m.x);\n    float r2 = sqrt(dot(p+m,p+m));\n\n    vec2 uv;\n    uv.x = 0.2*time + (r1-r2)*0.25;\n    uv.y = sin(2.0*(a1-a2));\n\n    float w = r1*r2*0.8;\n    vec3 col = texture2D(tex0,uv).xyz;\n\n    gl_FragColor = vec4(col/(.1+w),1.0);\n}\n';
 
   function WebGLRenderer(usePointSprites) {
     this.usePointSprites = usePointSprites != null ? usePointSprites : true;
