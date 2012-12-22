@@ -44,7 +44,7 @@ class PicoParticle extends Particle
 
 
 		# scale screen ratio ( 0 to 1 ) to pan ratio ( -1 to 1 )
-		@pan = ( @ratio.x - .5 ) * 2;
+		@pan = ( @ratio.x - .5 ) * 4;
 
 		@freq = 55 * ( 2 * @ratio.x )
 

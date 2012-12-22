@@ -50,7 +50,7 @@ PicoParticle = (function(_super) {
       x: this.pos.x / $(document).width(),
       y: this.pos.y / $(document).height()
     };
-    this.pan = (this.ratio.x - .5) * 2;
+    this.pan = (this.ratio.x - .5) * 4;
     this.freq = 55 * (2 * this.ratio.x);
     return this.phase_step = this.freq / pico.samplerate;
   };
