@@ -1,7 +1,9 @@
 <html>
 <head>
     <title>CoffeePhysics</title>
+    
     <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+
     <style type="text/css" media="screen">
 
         html, body {
@@ -110,8 +112,8 @@
 
         <article id="info">
             <header>
-                <h1>CoffeePhysics</h1>
-                <h2>A Lightweight CoffeeScript Physics Engine</h2>
+                <h1>CoffeePhysics + Pico.js lab</h1>
+                <h2>another night without sleep</h2>
             </header>
             <a href="https://github.com/soulwire/Coffee-Physics/zipball/master">Download</a>
             <a href="https://github.com/soulwire/Coffee-Physics">View on Github</a>
@@ -125,6 +127,8 @@
         </nav>
 
     </section>
+
+    <script src="compiled/vendors/pico.dev.js"></script>
 
     <!-- Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -140,6 +144,7 @@
     <script src="compiled/engine/integrator/Verlet.js"></script>
     <!-- Engine -->
     <script src="compiled/engine/Particle.js"></script>
+    <script src="compiled/engine/PicoParticle.js"></script>
     <script src="compiled/engine/Physics.js"></script>
     <script src="compiled/engine/Spring.js"></script>
     <!-- Behaviours -->
@@ -220,7 +225,7 @@
                 $(window).bind('keydown', onKeyDown);
 
                 // Set default demo and start updating.
-                setDemo('Attraction');
+                setDemo('Balloon');
                 update();
 
                 // Highlight current renderer.

@@ -1,7 +1,7 @@
 ### Demo ###
 class Demo
 
-	@COLOURS = ['DC0048', 'F14646', '4AE6A9', '7CFF3F', '4EC9D9', 'E4272E']
+	@COLOURS = ['729994', '32CCB8', '58FF8B', 'FF98C7', 'CC32C5', 'CC3B7F']
 
 	constructor: ->
 
