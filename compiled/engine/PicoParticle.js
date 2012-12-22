@@ -17,7 +17,7 @@ PicoParticle = (function(_super) {
 
   function PicoParticle(mass) {
     PicoParticle.__super__.constructor.call(this, mass);
-    pico.play(this.sinetone(55));
+    pico.play(this.sinetone(440));
   }
 
   PicoParticle.prototype.sinetone = function(freq) {
@@ -51,7 +51,7 @@ PicoParticle = (function(_super) {
       y: this.pos.y / $(document).height()
     };
     this.pan = (this.ratio.x - .5) * 4;
-    this.freq = 55 * (2 * this.ratio.x);
+    this.freq = 110 * (2 * this.ratio.x);
     return this.phase_step = this.freq / pico.samplerate;
   };
 

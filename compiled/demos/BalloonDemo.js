@@ -32,13 +32,13 @@ BalloonDemo = (function(_super) {
     }
     BalloonDemo.__super__.setup.call(this, full);
     this.physics.integrator = new ImprovedEuler();
-    attraction = new Attraction(this.mouse.pos, 10000, 5000);
+    attraction = new Attraction(this.mouse.pos, 1000, 10);
     this.original = new Vector();
     this.original.x = $(window).width() / 2;
     this.original.y = $(window).height() / 2;
     this.mouse.pos.set(this.original.x, this.original.y);
     max = full ? 400 : 200;
-    max = 200;
+    max = 10;
     _results = [];
     for (i = _i = 0; 0 <= max ? _i <= max : _i >= max; i = 0 <= max ? ++_i : --_i) {
       p = new Particle(Random(0.1, 1.0));
@@ -46,7 +46,7 @@ BalloonDemo = (function(_super) {
       p.behaviours.push(new Wander(10));
       p.behaviours.push(attraction);
       p.moveTo(new Vector(Random(this.width), Random(this.height)));
-      s = new Spring(this.mouse, p, Random(30, 3000), 1.0);
+      s = new Spring(this.mouse, p, Random(30, 300), 1.0);
       this.physics.particles.push(p);
       _results.push(this.physics.springs.push(s));
     }
@@ -56,8 +56,8 @@ BalloonDemo = (function(_super) {
   BalloonDemo.prototype.step = function() {
     var radius;
     BalloonDemo.__super__.step.call(this);
-    this.lfo.x += 0.05 / 8;
-    this.lfo.y += 0.1 / 8;
+    this.lfo.x += 0.05 / 8 / 2;
+    this.lfo.y += 0.1 / 8 / 2;
     radius = 200;
     this.mouse.pos.x = this.original.x + Math.cos(this.lfo.x) * radius * 2;
     this.mouse.pos.y = this.original.y + Math.sin(this.lfo.y) * radius;

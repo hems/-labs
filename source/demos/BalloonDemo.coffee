@@ -11,7 +11,7 @@ class BalloonDemo extends Demo
 		super()
 
 		@mouse = new PicoParticle
-		@mouse.fixed = true
+		@mouse.fixed = on
 
 	setup: (full = yes) ->
 
@@ -19,7 +19,7 @@ class BalloonDemo extends Demo
 
 		@physics.integrator = new ImprovedEuler()
 
-		attraction = new Attraction @mouse.pos, 10000, 5000
+		attraction = new Attraction @mouse.pos, 1000, 10
 
 		@original = new Vector()
 		@original.x = $( window ).width() / 2
@@ -28,7 +28,7 @@ class BalloonDemo extends Demo
 		@mouse.pos.set @original.x, @original.y
 
 		max = if full then 400 else 200
-		max = 200
+		max = 10
 
 		for i in [0..max]
 
@@ -40,7 +40,7 @@ class BalloonDemo extends Demo
 			
 			p.moveTo new Vector (Random @width), (Random @height)
 
-			s = new Spring @mouse, p, (Random 30, 3000), 1.0
+			s = new Spring @mouse, p, (Random 30, 300), 1.0
 
 			@physics.particles.push p
 			@physics.springs.push s
@@ -51,8 +51,8 @@ class BalloonDemo extends Demo
 
 		# retrun
 
-		@lfo.x += 0.05 / 8
-		@lfo.y += 0.1  / 8
+		@lfo.x += 0.05 / 8 / 2
+		@lfo.y += 0.1  / 8 / 2
 
 		radius = 200
 

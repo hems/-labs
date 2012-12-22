@@ -64,7 +64,11 @@ class WebGLRenderer extends Renderer
 
     # Spring fragent shader source.
     @SPRING_FS = '''
-
+        void main() {
+            gl_FragColor = vec4(1.0, 1.0, 1.0, 0.1);
+        }
+    '''
+    '''
         #ifdef GL_ES
         precision highp float;
         #endif
@@ -96,10 +100,6 @@ class WebGLRenderer extends Renderer
         }
 
     '''
-
-        # void main() {
-        #     gl_FragColor = vec4(1.0, 1.0, 1.0, 0.1);
-        # }
         
     constructor: (@usePointSprites = true) ->
 
