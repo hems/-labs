@@ -43,9 +43,9 @@ class PicoParticle extends Particle
 			y: @pos.y / $( document ).height()
 
 
-		# scale screen ratio ( 0 to 1 ) to pan ratio ( -1 to 1 )
+		# scale screen ratio ( 0 to 1 ) to pan ratio ( -2 to 2 )
 		@pan = ( @ratio.x - .5 ) * 4;
 
-		@freq = 110 * ( 2 * @ratio.x )
+		@freq = 55 * ( 2 * ( 1 - @ratio.y ) )
 
 		@phase_step = @freq / pico.samplerate
