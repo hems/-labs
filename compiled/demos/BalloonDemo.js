@@ -38,10 +38,10 @@ BalloonDemo = (function(_super) {
     this.original.y = $(window).height() / 2;
     this.mouse.pos.set(this.original.x, this.original.y);
     max = full ? 400 : 200;
-    max = 40;
+    max = 400;
     _results = [];
     for (i = _i = 0; 0 <= max ? _i <= max : _i >= max; i = 0 <= max ? ++_i : --_i) {
-      p = new Particle(Random(0.1, 1.0));
+      p = new Particle(Random(0.1, 0.7));
       p.setRadius(p.mass * 8);
       p.behaviours.push(new Wander(10));
       p.behaviours.push(attraction);

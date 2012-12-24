@@ -28,11 +28,11 @@ class BalloonDemo extends Demo
 		@mouse.pos.set @original.x, @original.y
 
 		max = if full then 400 else 200
-		max = 40
+		max = 400
 
 		for i in [0..max]
 
-			p = new Particle (Random 0.1, 1.0)
+			p = new Particle (Random 0.1, 0.7)
 			p.setRadius p.mass * 8
 
 			p.behaviours.push new Wander 10
