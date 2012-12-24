@@ -38,7 +38,7 @@ BalloonDemo = (function(_super) {
     this.original.y = $(window).height() / 2;
     this.mouse.pos.set(this.original.x, this.original.y);
     max = full ? 400 : 200;
-    max = 10;
+    max = 40;
     _results = [];
     for (i = _i = 0; 0 <= max ? _i <= max : _i >= max; i = 0 <= max ? ++_i : --_i) {
       p = new Particle(Random(0.1, 1.0));
@@ -46,7 +46,7 @@ BalloonDemo = (function(_super) {
       p.behaviours.push(new Wander(10));
       p.behaviours.push(attraction);
       p.moveTo(new Vector(Random(this.width), Random(this.height)));
-      s = new Spring(this.mouse, p, Random(30, 300), 1.0);
+      s = new Spring(this.mouse, p, Random(1, 100), Random(0, 1));
       this.physics.particles.push(p);
       _results.push(this.physics.springs.push(s));
     }

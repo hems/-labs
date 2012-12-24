@@ -28,7 +28,7 @@ class BalloonDemo extends Demo
 		@mouse.pos.set @original.x, @original.y
 
 		max = if full then 400 else 200
-		max = 10
+		max = 40
 
 		for i in [0..max]
 
@@ -40,7 +40,7 @@ class BalloonDemo extends Demo
 			
 			p.moveTo new Vector (Random @width), (Random @height)
 
-			s = new Spring @mouse, p, (Random 30, 300), 1.0
+			s = new Spring @mouse, p, (Random 1, 100), (Random 0, 1)
 
 			@physics.particles.push p
 			@physics.springs.push s
